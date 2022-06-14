@@ -2,22 +2,43 @@ package hangman;
 
 import java.util.ArrayList;
 
-
-class Game {
-
+public class Game {
 
 
-  //Game hangman_game = new Game("MAKERS");
+    String OriginalWord;
+    int RemainingAttempts = 10;
 
-  public String getWordToGuess(String word)
+    public Game(String word, int attempts)
+    {
+      OriginalWord = word;
+      RemainingAttempts = attempts;
+    }
+  
+
+  public String getWord(){
+
+    return this.OriginalWord;    
+
+  }
+
+  public int getRemainingAttempts(){
+
+    return this.RemainingAttempts;
+
+  }
+ 
+
+  
+
+  public String getWordToGuess()
   {
 
 
     StringBuilder builder = new StringBuilder();
 
-    for (int i = 0; i < word.length(); i++) 
+    for (int i = 0; i < this.OriginalWord.length(); i++) 
     {
-        Character currentLetter = word.charAt(i);
+        Character currentLetter = this.OriginalWord.charAt(i);
         if (i == 0) {
             builder.append(currentLetter);
         } else {
