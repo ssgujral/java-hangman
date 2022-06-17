@@ -18,6 +18,8 @@ public class GameTest {
 
  
 
+
+
   @Test public void testGetsInitialRemainingAttempts() {
 
     WordChooser wordChooser = new WordChooser();
@@ -50,6 +52,30 @@ public class GameTest {
 
     }
 
+
+    @Test public void testIsWon(){
+      Game game = new Game("LEG");
+      game.guessLetter('L');
+      game.guessLetter('E');
+      game.guessLetter('G');
+
+      assertEquals(game.isGameWon(), true);
+
+
+    }
+
+    @Test public void testIsWonWithSpecialWord() {
+      Game game = new Game("ARM")
+
+      game.guessLetter('A');
+      game.guessLetter('R');
+      game.guessLetter('M');
+
+      assertEquals(game.isGameWon(), true);
+
+
+
+    }
 
 
 }

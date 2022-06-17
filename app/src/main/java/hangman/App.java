@@ -48,22 +48,41 @@ public class App {
 
       if (result == true){
 
-        System.out.println("Right! Keep going!");
+        if(game.isGameWon()){
+          System.out.println("Good job: You won!!!!");
+          System.out.println(" ");
+          System.out.println("Your masked word was: " + game.getWordToGuess());
+          break;
+
+        }
+
+        else {
+
+        System.out.println("Correct guess! Keep going!");
         System.out.println(" ");
         System.out.println(game.getWordToGuess());
-      
 
+        }
       }
 
       else if (result == false){
 
+        if(game.isGameLost()) {
 
-        System.out.println("Your Hangman word does not contain that letter :-(. Try again.");
+          System.out.println("I'm sorry, but you are out of guesses! You lost the game :-(");
+          System.out.println(" ");
+          break;
+
+        }
+
+        else {
+
+        System.out.println("Your word does not contain that letter. Try again!");
         System.out.println(" ");
 
         System.out.println(game.getWordToGuess());
 
-
+        }
 
       }
 
