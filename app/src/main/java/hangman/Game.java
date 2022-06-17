@@ -1,16 +1,17 @@
 package hangman;
 
-import java.util.ArrayList;
+//import java.util.Random;
 
 public class Game {
 
 
-    String OriginalWord;
-    int RemainingAttempts = 10;
-
-    public Game(String word, int attempts)
+    private String OriginalWord;
+    private Integer RemainingAttempts = 10;
+    public WordChooser wordChooser;
+    
+    public Game(WordChooser wordChooser, Integer attempts)
     {
-      OriginalWord = word;
+      OriginalWord = wordChooser.getRandomWordFromDictionary();
       RemainingAttempts = attempts;
     }
   
@@ -20,6 +21,8 @@ public class Game {
     return this.OriginalWord;    
 
   }
+
+  
 
   public int getRemainingAttempts(){
 

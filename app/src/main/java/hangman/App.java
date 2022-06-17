@@ -4,13 +4,18 @@
 package hangman;
 
 public class App {
+  
+  /**
     public String getGreeting() {
-        return "Hello World!";
+        //return "Hello World!";
     }
+  */
 
     public static void main(String[] args) {
 
-        //Game hangman1 = new Game();
+        //Game hangman1 = new Game(10);
+
+        //System.out.println(hangman1.getRandomWordFromDictionary());
 
         //System.out.println(hangman1.getWordToGuess());
 
