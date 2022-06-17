@@ -2,6 +2,8 @@ package hangman;
 
 //import java.util.Random;
 
+import java.util.ArrayList;
+
 public class Game {
 
 
@@ -9,11 +11,15 @@ public class Game {
     private Integer RemainingAttempts = 10;
     public WordChooser wordChooser;
     
+    private 
+    ArrayList<Character> guessedLetters = new ArrayList<Character>();
+    
     public Game(WordChooser wordChooser, Integer attempts)
     {
-      OriginalWord = wordChooser.getRandomWordFromDictionary();
+      this.OriginalWord = wordChooser.getRandomWordFromDictionary();
       RemainingAttempts = attempts;
     }
+
   
 
   public String getWord(){
@@ -53,4 +59,26 @@ public class Game {
     return builder.toString();
 
   }
+
+  public Boolean guessLetter(Character letter){
+
+    if (this.OriginalWord.indexOf(letter) != -1 ) {
+
+      guessedLetters.add(letter);
+      
+      return true;
+
+    }
+
+    else{
+
+      RemainingAttempts--;
+      return false;
+
+
+    }
+
+  }
+
+
 }

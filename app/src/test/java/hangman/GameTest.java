@@ -29,6 +29,23 @@ public class GameTest {
   }
 
 
+    @Test public void testGuessLetterRightAndShowGuessedLetter() {
+
+      Game game = new Game("GUJRAL", 0);
+
+      assertEquals(game.guessLetter('G'), true);
+
+    }
+
+
+    @Test public void testGuessLetterWrong() {
+
+      Game game = new Game ("JAVA", 0);
+
+      assertEquals(game.guessLetter('X'), false);
+
+    }
+
 
 
 }
