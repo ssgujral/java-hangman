@@ -3,6 +3,11 @@
  */
 package hangman;
 
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 public class App {
   
   /**
@@ -13,11 +18,67 @@ public class App {
 
     public static void main(String[] args) {
 
+      Scanner scan = new Scanner(System.in);
+      
+
+      System.out.println("Welcome to Hangman!");
+      System.out.println(" ");
+
+      WordChooser wordChooser = new WordChooser();
+
+      Game game = new Game(wordChooser, 10);
+
+      Random rand = new Random();
+
+      System.out.println("Let's get started! Today, the word to guess is: " + game.getWordToGuess());
+
+      System.out.println(" ");
+
+  
+
+      do{
+
+        System.out.println("Enter a letter to guess. (You have " + game.getRemainingAttempts() + " guesses left.)");
+
+
+        Character input = scan.nextLine().charAt(0);
+  
+        Boolean result = game.guessLetter(input);
+
+
+      if (result == true){
+
+        System.out.println("Right! Keep going!");
+        System.out.println(" ");
+        System.out.println(game.getWordToGuess());
+      
+
+      }
+
+      else if (result == false){
+
+
+        System.out.println("Your Hangman word does not contain that letter :-(. Try again.");
+        System.out.println(" ");
+
+        System.out.println(game.getWordToGuess());
+
+
+
+      }
+
+
+      } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() > 0);
+
         //Game hangman1 = new Game(10);
 
         //System.out.println(hangman1.getRandomWordFromDictionary());
 
         //System.out.println(hangman1.getWordToGuess());
+
+
+
+
 
 
 

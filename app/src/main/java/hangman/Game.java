@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Game {
 
 
-    private String OriginalWord;
-    private Integer RemainingAttempts = 10;
+    public String OriginalWord;
+    public Integer RemainingAttempts = 10;
     public WordChooser wordChooser;
     
-    private 
+    public 
     ArrayList<Character> guessedLetters = new ArrayList<Character>();
     
     public Game(WordChooser wordChooser, Integer attempts)
@@ -51,7 +51,17 @@ public class Game {
         if (i == 0) {
             builder.append(currentLetter);
         } else {
+
+          if (guessedLetters.indexOf(currentLetter) != -1)
+          {builder.append(currentLetter);
+          }
+          else {
             builder.append("_");
+
+          }
+
+
+            
         }
       
     } 

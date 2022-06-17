@@ -33,7 +33,9 @@ public class GameTest {
 
       Game game = new Game("GUJRAL", 0);
 
-      assertEquals(game.guessLetter('G'), true);
+      assertEquals(game.guessLetter('L'), true);
+
+      assertEquals(game.getWordToGuess(), "G_____L");
 
     }
 
@@ -43,6 +45,8 @@ public class GameTest {
       Game game = new Game ("JAVA", 0);
 
       assertEquals(game.guessLetter('X'), false);
+
+      assertEquals(game.getWordToGuess(), "J___");
 
     }
 
