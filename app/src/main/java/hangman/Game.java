@@ -9,12 +9,16 @@ public class Game {
   public String OriginalWord;
   public Integer RemainingAttempts = 10;
   public WordChooser wordChooser;
+  private Masker masker;
 
   public ArrayList<Character> guessedLetters = new ArrayList<Character>();
 
-  public Game(WordChooser wordChooser, Integer attempts) {
+  public Game(WordChooser wordChooser, Masker masker) {
     this.OriginalWord = wordChooser.getRandomWordFromDictionary();
-    RemainingAttempts = attempts;
+
+    this.masker = masker;
+    
+    //RemainingAttempts = attempts;
   }
 
   public String getWord() {
@@ -23,36 +27,20 @@ public class Game {
 
   }
 
+  public String getWordToGuess() {
+
+    return this.masker.getMaskedWord(this.OriginalWord, guessedLetters);
+
+  }
+
+
   public int getRemainingAttempts() {
 
     return this.RemainingAttempts;
 
   }
 
-  public String getWordToGuess() {
-
-    StringBuilder builder = new StringBuilder();
-
-    for (int i = 0; i < this.OriginalWord.length(); i++) {
-      Character currentLetter = this.OriginalWord.charAt(i);
-      if (i == 0) {
-        builder.append(currentLetter);
-      } else {
-
-        if (guessedLetters.indexOf(currentLetter) != -1) {
-          builder.append(currentLetter);
-        } else {
-          builder.append("_");
-
-        }
-
-      }
-
-    }
-
-    return builder.toString();
-
-  }
+ 
 
   public Boolean guessLetter(Character letter) {
 

@@ -15,7 +15,9 @@ public class WordChooserTest {
     WordChooser mockedWordChooser = mock(WordChooser.class);
     when(mockedWordChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
 
-    Game game = new Game(mockedWordChooser, 0);
+    Masker masker = new Masker();
+
+    Game game = new Game(mockedWordChooser, masker);
 
     assertEquals(game.getWordToGuess(), "D________");
 

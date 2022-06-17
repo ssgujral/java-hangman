@@ -26,7 +26,9 @@ public class App {
 
       WordChooser wordChooser = new WordChooser();
 
-      Game game = new Game(wordChooser, 10);
+      Masker masker = new Masker();
+
+      Game game = new Game(wordChooser, masker);
 
       Random rand = new Random();
 

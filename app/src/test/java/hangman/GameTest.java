@@ -8,9 +8,11 @@ public class GameTest {
   @Test public void testDisplayMaskedWordToGuess() {
     
     WordChooser wordChooser = new WordChooser();
-    
-    Game game = new Game(wordChooser, 0);
 
+    Masker masker = new Masker();
+
+    Game game = new Game(wordChooser, masker);
+    
     assertEquals("Gets masked word", "M_____", game.getWordToGuess());
 
 
@@ -24,7 +26,9 @@ public class GameTest {
 
     WordChooser wordChooser = new WordChooser();
 
-    Game game = new Game(wordChooser, 10);
+    Masker masker = new Masker();
+
+    Game game = new Game(wordChooser, masker);
 
     assertEquals("Gets remaining attempts", Integer.valueOf(10), Integer.valueOf(game.getRemainingAttempts()));
 
@@ -33,7 +37,11 @@ public class GameTest {
 
     @Test public void testGuessLetterRightAndShowGuessedLetter() {
 
-      Game game = new Game("GUJRAL", 0);
+      WordChooser wordChooser = new WordChooser();
+
+      Masker masker = new Masker();
+
+      Game game = new Game(wordChooser, masker);
 
       assertEquals(game.guessLetter('L'), true);
 
@@ -44,7 +52,11 @@ public class GameTest {
 
     @Test public void testGuessLetterWrong() {
 
-      Game game = new Game ("JAVA", 0);
+      WordChooser wordChooser = new WordChooser();
+
+      Masker masker = new Masker();
+
+      Game game = new Game(wordChooser, masker);
 
       assertEquals(game.guessLetter('X'), false);
 
@@ -54,7 +66,15 @@ public class GameTest {
 
 
     @Test public void testIsWon(){
-      Game game = new Game("LEG");
+      
+      WordChooser wordChooser = new WordChooser();
+
+      Masker masker = new Masker();
+
+      Game game = new Game(wordChooser, masker);
+
+
+
       game.guessLetter('L');
       game.guessLetter('E');
       game.guessLetter('G');
@@ -65,7 +85,14 @@ public class GameTest {
     }
 
     @Test public void testIsWonWithSpecialWord() {
-      Game game = new Game("ARM")
+      
+      
+      WordChooser wordChooser = new WordChooser();
+
+      Masker masker = new Masker();
+
+      Game game = new Game(wordChooser, masker);
+
 
       game.guessLetter('A');
       game.guessLetter('R');
